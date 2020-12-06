@@ -1,0 +1,36 @@
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>Создать отчет json</title>
+</head>
+
+<body>
+<div>
+            Анализ фото:
+            <a href="{{ url_for('index') }}">На главную</a>
+            <a href="{{ url_for('upload_file') }}">Загрузка файлов</a>
+            <a href="{{ url_for('uploaded_file') }}">Скачать отчет</a>
+            <a href="{{ url_for('create_json') }}">Создать отчет json</a>
+        </div>
+<h2>Создать отчет json</h2>
+    <form action="{{ url_for('addRegion',log=log) }}" method="post">
+        <label for="start">Выберите дату отчета</label>
+        <input type="date" name="theDate" id="theDate">
+        <input type="submit" value="Сформировать">
+
+    </form>
+<script id="jsbin-javascript">
+var date = new Date();
+
+var day = date.getDate();
+var month = date.getMonth() + 1;
+var year = date.getFullYear();
+
+if (month < 10) month = "0" + month;
+if (day < 10) day = "0" + day;
+var today = year + "-" + month + "-" + day;
+document.getElementById('theDate').value = today;
+</script>
+</body>
+
+</html>
